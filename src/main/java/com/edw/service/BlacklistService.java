@@ -19,6 +19,6 @@ public class BlacklistService {
     public Boolean isBlacklist(String name) {
         if(name == null || name.trim().isEmpty())
             return true;
-        return !Blacklist.find("name", name).list().isEmpty();
+        return Blacklist.find("name", name).list().size() > 0;
     }
 }
