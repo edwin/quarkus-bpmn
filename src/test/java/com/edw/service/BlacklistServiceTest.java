@@ -26,17 +26,17 @@ public class BlacklistServiceTest {
     @Inject
     BlacklistService blacklistService;
 
-    @BeforeEach
+    @BeforeAll
     @Transactional
-    public void init() {
-        Blacklist.persist(new Blacklist("Edwin"));
+    public static void init() {
+        Blacklist.persist(new Blacklist("Blacklist User 02"));
     }
 
     @Test
     @DisplayName("Test whether a user is blacklist or not")
     @Order(1)
     public void testResult() {
-        Assertions.assertTrue(blacklistService.isBlacklist("Edwin"));
-        Assertions.assertFalse(blacklistService.isBlacklist("Lele"));
+        Assertions.assertTrue(blacklistService.isBlacklist("Blacklist User 02"));
+        Assertions.assertFalse(blacklistService.isBlacklist("Not Blacklist"));
     }
 }
