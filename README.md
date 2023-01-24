@@ -61,3 +61,15 @@ Open `http://localhost:8080/q` from web browser to see all the BPMN endpoints.
 
 
 ```
+
+## Calling Quarkus Script from Inside BPMN
+```java
+    com.edw.service.BlacklistService blacklistService = new com.edw.service.BlacklistService();
+    if(blacklistService.isBlacklist(name)) {
+        kcontext.setVariable("blacklist", true);
+        kcontext.setVariable("status", "Loan is Rejected because Customer is Blacklisted");
+    }    
+    else {
+        kcontext.setVariable("blacklist", false);
+    }
+```

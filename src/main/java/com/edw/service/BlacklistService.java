@@ -4,7 +4,6 @@ import com.edw.entity.Blacklist;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
-import java.util.List;
 
 /**
  * <pre>
@@ -18,6 +17,8 @@ import java.util.List;
 @Transactional
 public class BlacklistService {
     public Boolean isBlacklist(String name) {
+        if(name == null || name.trim().isEmpty())
+            return true;
         return !Blacklist.find("name", name).list().isEmpty();
     }
 }

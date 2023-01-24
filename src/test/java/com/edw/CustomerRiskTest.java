@@ -23,7 +23,7 @@ public class CustomerRiskTest {
     @Test
     public void testLowRiskCustomer() {
         given()
-                .body("{ \"age\": 25, \"salary\": 5000 }")
+                .body("{  \"name\": \"Edwin\", \"age\": 25, \"salary\": 5000 }")
                 .contentType(ContentType.JSON)
                 .when()
                 .post("/customer_risk")
@@ -36,7 +36,7 @@ public class CustomerRiskTest {
     @Test
     public void testMediumRiskCustomer() {
         given()
-                .body("{ \"age\": 15, \"salary\": 5000 }")
+                .body("{  \"name\": \"Edwin\", \"age\": 15, \"salary\": 5000 }")
                 .contentType(ContentType.JSON)
                 .when()
                 .post("/customer_risk")
@@ -48,7 +48,7 @@ public class CustomerRiskTest {
     @Test
     public void testHighRiskCustomer() {
         given()
-                .body("{ \"age\": 15, \"salary\": 300 }")
+                .body("{  \"name\": \"Edwin\", \"age\": 15, \"salary\": 300 }")
                 .contentType(ContentType.JSON)
                 .when()
                 .post("/customer_risk")
