@@ -2,6 +2,8 @@
 
 An integration of BPMN workflow using Kogito, and Quarkus Framework. This shows BPMN capability to validate and process REST API with a specific JSON format and gives response based on workflow.
 
+Also having the capability to connect BPMN workflow with external existing database thru Quarkus database functionality. 
+
 ## Risk Table
 ![Image](images/loan2.PNG)
 
@@ -45,4 +47,17 @@ Open `http://localhost:8080/q` from web browser to see all the BPMN endpoints.
                 .statusCode(201)
                 .body("'status'", equalTo("Loan is Rejected because Customer is High Risk"));
     }
+```
+
+## Database
+```sql
+    create table t_blacklist
+    (
+        id int auto_increment,
+        name varchar(16) not null,
+        constraint t_blacklist_pk
+            primary key (id)
+    );
+
+
 ```
