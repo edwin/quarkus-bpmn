@@ -1,12 +1,12 @@
 package com.edw;
 
 import com.edw.entity.Blacklist;
+import io.quarkus.test.common.QuarkusTestResource;
+import io.quarkus.test.h2.H2DatabaseTestResource;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import javax.transaction.Transactional;
 
@@ -22,6 +22,8 @@ import static org.hamcrest.CoreMatchers.equalTo;
  * 18 Jan 2023 13:23
  */
 @QuarkusTest
+@QuarkusTestResource(H2DatabaseTestResource.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class CustomerRiskTest {
 
     @BeforeAll

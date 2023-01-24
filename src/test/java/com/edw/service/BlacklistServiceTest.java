@@ -37,6 +37,9 @@ public class BlacklistServiceTest {
     @Order(1)
     public void testResult() {
         Assertions.assertTrue(blacklistService.isBlacklist("Blacklist User 02"));
+        Assertions.assertTrue(blacklistService.isBlacklist(null));
+        Assertions.assertTrue(blacklistService.isBlacklist(""));
+
         Assertions.assertFalse(blacklistService.isBlacklist("Not Blacklist"));
     }
 }

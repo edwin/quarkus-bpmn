@@ -25,9 +25,9 @@ $ java -jar .\target\quarkus-app\quarkus-run.jar
 $ curl  -X POST http://localhost:8080/customer_risk  \
     -H 'content-type: application/json'  \
     -H 'accept: application/json'   \
-    -d '{"salary":500, "age": 15}'
+    -d '{"name" : "Regular User", "salary":500, "age": 15}'
     
-{"id":"c4fcc5eb-9aab-4c99-8620-5ff1c27be79e","risk":"High","salary":500,"age":15,"status":"Loan is Rejected because Customer is High Risk"} 
+{"id":"c4fcc5eb-9aab-4c99-8620-5ff1c27be79e","name":"Regular User", "risk":"High","salary":500,"age":15,"status":"Loan is Rejected because Customer is High Risk"} 
     
 ```
 
@@ -39,7 +39,7 @@ Open `http://localhost:8080/q` from web browser to see all the BPMN endpoints.
     @Test
     public void testHighRiskCustomer() {
         given()
-                .body("{ \"age\": 15, \"salary\": 300 }")
+                .body("{  \"name\":\"Regular User\", \"age\": 15, \"salary\": 300 }")
                 .contentType(ContentType.JSON)
                 .when()
                 .post("/customer_risk")
